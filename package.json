@@ -27,7 +27,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -o -H 0.0.0.0",
     "start": "npm run develop"
   },
   "devDependencies": {}

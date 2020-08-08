@@ -1,0 +1,15 @@
+@import './variables/colors';
+@import './variables/screen-sizes';
+@import './mixins/media-queries';
+@import './reset';
+@import './blocks/card';
+@import './blocks/container';
+@import './blocks/mobile-header';
+@import './blocks/sheet';
+@import './blocks/showcase';
+@import './blocks/sidebar';
+@import './blocks/slider';
+@import './blocks/social';
+@import './blocks/services';
+@import '../../node_modules/slick-carousel/slick/slick.css';
+@import '../../node_modules/slick-carousel/slick/slick-theme.css';

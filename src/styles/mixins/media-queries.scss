@@ -1,0 +1,11 @@
+@mixin underLargePhone {
+  @media screen and (max-width: $large-phone) {
+    @content;
+  }
+}
+
+@mixin aboveLargePhone {
+  @media screen and (min-width: $large-phone + 1) {
+    @content;
+  }
+}
