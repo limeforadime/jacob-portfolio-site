@@ -1,37 +1,36 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 const Services = () => {
-  const serviceList = [];
-  const { services } = useServiceListingQuery();
-
-  services.edges.forEach((serviceEdge) => {
-    serviceList.push({
-      name: serviceEdge.node.name,
-      id: serviceEdge.node.id,
-      description: serviceEdge.node.description,
-      price: serviceEdge.node.price,
-    });
-  });
+  const { servicesBlock } = useServiceListingQuery();
 
   return (
-    <section id='services'>
-      <h1
-        style={{
-          fontSize: '1.5rem',
-          marginBottom: '20px',
-        }}
-      >
-        My Services
-      </h1>
-      <div className='services__flex-wrapper'>
-        {serviceList.map((service) => (
-          <div className='service__item'>
-            <h2 className='service__name'>{service.name}</h2>
-            <h4>{service.description}</h4>
-            <h3>${service.price}</h3>
+    <section id='services' className='block Services'>
+      <div className='content-wrapper content-wrapper--larger'>
+        <header>
+          <h1 className='block__title block__title--light'>
+            {servicesBlock.title}
+          </h1>
+          <h4 className='Services__subtext'>{servicesBlock.subtitle}</h4>
+        </header>
+
+        <main>
+          <div className='Services__grid-wrapper'>
+            {servicesBlock.services.map((service) => (
+              <div className='service__item'>
+                <Img
+                  className='service__image'
+                  fluid={service.image.fluid}
+                ></Img>
+                <h2 className='service__name'>{service.name}</h2>
+                <h3 className='service__price'>${service.price}</h3>
+                <h4 className='service__description'>{service.description}</h4>
+                <button className='service__button button'>Add To Cart</button>
+              </div>
+            ))}
           </div>
-        ))}
+        </main>
       </div>
     </section>
   );
@@ -40,19 +39,25 @@ const Services = () => {
 export default Services;
 
 const useServiceListingQuery = () => {
-  const serviceListData = useStaticQuery(graphql`
-    query ServiceQuery {
-      services: allDatoCmsService {
-        edges {
-          node {
-            id
-            description
-            price
-            name
+  const servicesData = useStaticQuery(graphql`
+    query ServicesQuery {
+      servicesBlock: datoCmsServicesBlock {
+        title
+        subtitle
+        services {
+          id
+          price
+          name
+          description
+          imageVisible
+          image {
+            fluid(maxWidth: 300, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsSizes
+            }
           }
         }
       }
     }
   `);
-  return serviceListData;
+  return servicesData;
 };

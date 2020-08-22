@@ -1,11 +1,29 @@
-@mixin underLargePhone {
-  @media screen and (max-width: $large-phone) {
+@mixin underMobile {
+  @media screen and (max-width: $mobile) {
     @content;
   }
 }
 
-@mixin aboveLargePhone {
-  @media screen and (min-width: $large-phone + 1) {
+@mixin mobile {
+  @media screen and (min-width: $mobile + 1) {
+    @content;
+  }
+}
+
+@mixin underTablet {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet + 1) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
     @content;
   }
 }

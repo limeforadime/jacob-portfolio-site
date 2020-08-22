@@ -1,0 +1,13 @@
+.content-wrapper {
+  max-width: $maxContentWidth;
+  margin-left: auto;
+  margin-right: auto;
+
+  &--larger {
+    max-width: $maxContentWidth + 60;
+  }
+
+  &--x-large {
+    max-width: $maxContentWidth + 200;
+  }
+}

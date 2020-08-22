@@ -1,0 +1,111 @@
+.Services {
+  background: linear-gradient(
+      0deg,
+      rgba(82, 116, 156, 0.61),
+      rgba(82, 116, 156, 0.61)
+    ),
+    url('/images/services-background-image.jpg');
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100%, cover;
+  mask: url('/images/services-background-vector.svg');
+
+  &__grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    @include desktop {
+      margin: 2rem auto;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__subtext {
+    font-size: 0.7rem;
+    color: $accent;
+    text-align: center;
+
+    @include tablet {
+      font-size: 0.95rem;
+    }
+
+    @include desktop {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.service {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    text-align: center;
+
+    @include tablet {
+      margin: 3.3rem 0;
+    }
+  }
+
+  &__name {
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.3rem;
+    color: #eff;
+    text-align: center;
+
+    @include desktop {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__price {
+    margin-bottom: 0.5rem;
+    color: $accent;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 2px;
+    &::first-letter {
+      font-size: 1.1rem;
+      vertical-align: text-top;
+    }
+
+    @include desktop {
+      font-size: 1.9rem;
+      &::first-letter {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__description {
+    margin: 0.5rem 0 0.5rem 0;
+    font-size: 0.8rem;
+    color: $accent;
+    text-align: center;
+
+    @include tablet {
+      font-size: 0.95rem;
+    }
+
+    @include desktop {
+      font-size: 1.2rem;
+    }
+  }
+
+  &__image {
+    width: 80px;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+  }
+
+  &__button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

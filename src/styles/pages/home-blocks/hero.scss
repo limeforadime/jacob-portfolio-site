@@ -1,0 +1,59 @@
+.Hero {
+  position: relative;
+  padding-top: 110px;
+  background: url('/images/hero-vector-blobs.svg'),
+    url('/images/hero-background-vector.svg');
+
+  background-position: top, center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 90%, 100%;
+
+  &__wrapper {
+    margin: 2rem auto;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    flex: 1;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.29),
+      3px 4px 14px rgba(114, 114, 114, 0.5);
+
+    @include tablet {
+      font-size: 2.5rem;
+    }
+
+    @include desktop {
+      font-size: 2.9rem;
+    }
+  }
+
+  &__subtitle {
+    flex: 1;
+    @include tablet {
+      font-size: 1.2rem;
+    }
+
+    @include desktop {
+      margin-top: 0.5rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  &__cta-button {
+    @include tablet {
+      padding: 15px 40px;
+    }
+  }
+}
+
+.button-wrapper {
+  flex: 1;
+  align-self: center;
+}

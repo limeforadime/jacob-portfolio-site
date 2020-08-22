@@ -1,14 +1,24 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, Link, graphql } from 'gatsby';
 
 const Hero = () => {
   const { hero } = useHeroQuery();
   return (
-    <section id='hero'>
-      <header>Hero section</header>
-      <main>
-        <h2>{hero.title}</h2>
-      </main>
+    <section id='hero' className='block Hero'>
+      <div className='Hero__wrapper'>
+        <header className='Hero__title Hero__title--light'>{hero.title}</header>
+        <h2 className='Hero__subtitle block__content-text block__content-text--light block__content-text--center'>
+          {hero.subtitle}
+        </h2>
+        <div className='button-wrapper'>
+          <Link
+            to='/#services'
+            className='Hero__cta-button button button--center'
+          >
+            {hero.buttonText}
+          </Link>
+        </div>
+      </div>
     </section>
   );
 };
@@ -20,6 +30,8 @@ const useHeroQuery = () => {
     query HeroQuery {
       hero: datoCmsHeroBlock {
         title
+        subtitle
+        buttonText
       }
     }
   `);

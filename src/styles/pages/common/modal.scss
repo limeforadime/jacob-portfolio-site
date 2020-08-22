@@ -1,0 +1,16 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 6;
+  transition: all 0.3s ease;
+  visibility: hidden;
+
+  &.is-open {
+    visibility: visible;
+    background-color: rgba(48, 91, 119, 0.76);
+    transition: all 0.3s ease;
+  }
+}

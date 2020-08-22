@@ -1,0 +1,40 @@
+.FeaturedWork {
+  position: relative;
+  margin-top: -20px;
+  background: #c3f2e4;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 2.5rem;
+
+    @include desktop {
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: stretch;
+      margin: auto;
+    }
+  }
+
+  &__item {
+    margin: 0 auto 2rem auto;
+    width: 85%;
+
+    @include tablet {
+      width: 70%;
+    }
+
+    @include desktop {
+      width: 31%;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 100px;
+  }
+}

@@ -1,12 +1,13 @@
 .social {
   display: inline-block;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   vertical-align: middle;
-  border: 1px solid $border-color;
+  border: 1px solid $secondary;
+  background-color: $secondary;
   border-radius: 50%;
   background-position: 50% 50%;
-  background-size: 40%;
+  background-size: 60%;
   background-repeat: no-repeat;
   margin-bottom: 10px;
   margin-right: 4px;

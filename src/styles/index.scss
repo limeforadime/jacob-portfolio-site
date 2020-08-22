@@ -2,14 +2,26 @@
 @import './variables/screen-sizes';
 @import './mixins/media-queries';
 @import './reset';
-@import './blocks/card';
-@import './blocks/container';
-@import './blocks/mobile-header';
-@import './blocks/sheet';
-@import './blocks/showcase';
-@import './blocks/sidebar';
-@import './blocks/slider';
-@import './blocks/social';
-@import './blocks/services';
+
+@import './pages/common/mobile-header.scss';
+@import './pages/common/container';
+@import './pages/common/sidebar';
+@import './pages/common/social';
+@import './pages/common/article';
+@import './pages/common/card';
+@import './pages/common/cart';
+@import './pages/common/block-components';
+@import './pages/common/content-wrapper';
+@import './pages/common/button';
+@import './pages/common/modal.scss';
+@import './pages/home-blocks/hero';
+@import './pages/home-blocks/about';
+@import './pages/home-blocks/services';
+@import './pages/home-blocks/contact';
+@import './pages/home-blocks/testimonials';
+@import './pages/home-blocks/featured-work';
+@import './pages/work-showcase/slider';
+@import './pages/work-showcase/showcase';
+
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import '../../node_modules/slick-carousel/slick/slick-theme.css';

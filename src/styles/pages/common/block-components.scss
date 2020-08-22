@@ -1,0 +1,60 @@
+.block {
+  padding: 60px 1rem;
+
+  @include mobile {
+  }
+
+  @include tablet {
+  }
+
+  @include desktop {
+  }
+}
+
+.block__title {
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-align: center;
+
+  @include tablet {
+    font-size: 2rem;
+    margin-top: 5px;
+  }
+
+  @include desktop {
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+  }
+
+  &--light {
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.29),
+      3px 4px 14px rgba(114, 114, 114, 0.5);
+  }
+
+  &--dark {
+    color: $primary;
+    text-shadow: 2px 2px 5px rgba(95, 95, 95, 0.274),
+      3px 4px 14px rgba(114, 114, 114, 0.301);
+  }
+
+  &--l-align {
+    text-align: left;
+  }
+}
+
+.block__content-text {
+  font-size: 0.9rem;
+
+  &--light {
+    color: $accent;
+  }
+
+  &--dark {
+    color: $primary;
+  }
+
+  &--center {
+    text-align: center;
+  }
+}

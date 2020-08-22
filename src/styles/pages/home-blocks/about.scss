@@ -1,0 +1,60 @@
+.About {
+  position: relative;
+  z-index: -1;
+  margin: -25px auto;
+  padding-bottom: 70px;
+  background: url('/images/about-background-vector.svg') no-repeat 0 -20px,
+    linear-gradient(251.16deg, #e8fcff 2.85%, #badaff 91.26%) no-repeat;
+  background-size: 60% 110%, cover;
+
+  &__title {
+    margin-bottom: 1rem;
+
+    @include desktop {
+      margin: 1.5rem auto 3rem auto;
+    }
+  }
+
+  &__flex-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      flex-direction: row;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__content-text {
+    margin: 1rem auto;
+
+    @include tablet {
+      font-size: 1rem;
+      padding: 0 2rem;
+      max-width: $maxReadWidth;
+    }
+
+    @include desktop {
+      margin: 2rem 0 0 5rem;
+      padding: 0;
+      max-width: initial;
+    }
+  }
+
+  &__photo__wrapper {
+  }
+
+  &__photo {
+    width: 250px;
+    height: 250px;
+    margin: 2rem auto;
+    border-radius: 25px;
+    filter: drop-shadow(5px 5px 12px rgba(0, 0, 0, 0.25));
+    box-shadow: 16px 16px 32px 10px rgba(0, 0, 0, 0.25);
+
+    @include desktop {
+      width: 350px;
+      height: 350px;
+    }
+  }
+}
