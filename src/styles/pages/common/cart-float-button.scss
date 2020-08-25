@@ -1,0 +1,29 @@
+.cart {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  background: rgb(255, 255, 255);
+  // border: 1px solid $primary-dark;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 2px 3px 6px rgba(83, 83, 83, 0.637);
+  z-index: 4;
+  cursor: pointer;
+  outline: none;
+
+  @include tablet {
+    display: none;
+  }
+
+  &__icon {
+    // position: absolute;
+    // left: 20%;
+    // top: 28%;
+    width: 100%;
+    color: rgb(53, 53, 53);
+    stroke: black;
+    text-shadow: 1px 1px 0 black;
+  }
+}

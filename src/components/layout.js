@@ -50,9 +50,9 @@ const Layout = ({ children }) => {
           }}
         />
       </div>
-      <Link className='cart' to='#'>
-        <span className='cart__icon fas fa-shopping-cart fa-4x' />
-      </Link>
+      <button className='cart snipcart-checkout'>
+        <span className='cart__icon fas fa-shopping-cart fa-3x' />
+      </button>
       <div className='container__sidebar'>
         <div className='sidebar'>
           <h6 className='sidebar__title'>
@@ -68,22 +68,38 @@ const Layout = ({ children }) => {
           </div>
           <ul className='sidebar__menu'>
             <li>
-              <Link to='/' onClick={closeSidebar}>
+              <Link
+                to='/'
+                className='sidebar__menu__item'
+                onClick={closeSidebar}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link to='/#services' onClick={closeSidebar}>
+              <Link
+                to='/#services'
+                className='sidebar__menu__item'
+                onClick={closeSidebar}
+              >
                 My Services
               </Link>
             </li>
             <li>
-              <Link to='/#contact' onClick={closeSidebar}>
+              <Link
+                to='/#contact'
+                className='sidebar__menu__item'
+                onClick={closeSidebar}
+              >
                 Get In Touch
               </Link>
             </li>
             <li>
-              <Link to='/#testimonials' onClick={closeSidebar}>
+              <Link
+                to='/#testimonials'
+                className='sidebar__menu__item'
+                onClick={closeSidebar}
+              >
                 Testimonials
               </Link>
             </li>
@@ -93,14 +109,23 @@ const Layout = ({ children }) => {
               </Link>
             </li> */}
             <li>
-              <Link to='/all-works' onClick={closeSidebar}>
+              <Link
+                to='/all-works'
+                className='sidebar__menu__item'
+                onClick={closeSidebar}
+              >
                 My Works
               </Link>
             </li>
             <li>
-              <Link to='#' onClick={closeSidebar}>
-                <span className='fas fa-shopping-cart' /> Cart (0)
-              </Link>
+              <button
+                className='sidebar__menu__item sidebar__button-reset snipcart-checkout'
+                onClick={closeSidebar}
+              >
+                <span className='fas fa-shopping-cart' />{' '}
+                <span className='snipcart-total-price'> $0.00</span> (
+                <span className='snipcart-items-count'>0</span>)
+              </button>
             </li>
           </ul>
           <p className='sidebar__phone'>{sidebar.phoneNumber}</p>

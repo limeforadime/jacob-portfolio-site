@@ -9,11 +9,12 @@
 @import './pages/common/social';
 @import './pages/common/article';
 @import './pages/common/card';
-@import './pages/common/cart';
+@import './pages/common/cart-float-button';
 @import './pages/common/block-components';
 @import './pages/common/content-wrapper';
 @import './pages/common/button';
-@import './pages/common/modal.scss';
+@import './pages/common/modal';
+@import './pages/common/snipcart-overrides';
 @import './pages/home-blocks/hero';
 @import './pages/home-blocks/about';
 @import './pages/home-blocks/services';

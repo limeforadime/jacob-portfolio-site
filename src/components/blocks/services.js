@@ -26,7 +26,18 @@ const Services = () => {
                 <h2 className='service__name'>{service.name}</h2>
                 <h3 className='service__price'>${service.price}</h3>
                 <h4 className='service__description'>{service.description}</h4>
-                <button className='service__button button'>Add To Cart</button>
+
+                {/* TODO: change url path to the absolute netlify one */}
+                <button
+                  className='service__button button snipcart-add-item'
+                  data-item-id={service.id}
+                  data-item-price={service.price}
+                  data-item-name={service.name}
+                  data-item-description={service.description}
+                  data-item-url={'/'}
+                >
+                  Add To Cart
+                </button>
               </div>
             ))}
           </div>
@@ -49,7 +60,6 @@ const useServiceListingQuery = () => {
           price
           name
           description
-          imageVisible
           image {
             fluid(maxWidth: 300, imgixParams: { fm: "jpg", auto: "compress" }) {
               ...GatsbyDatoCmsSizes
