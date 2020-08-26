@@ -18,7 +18,7 @@ const Services = () => {
         <main>
           <div className='Services__grid-wrapper'>
             {servicesBlock.services.map((service) => (
-              <div className='service__item'>
+              <div key={service.id} className='service__item'>
                 <Img
                   className='service__image'
                   fluid={service.image.fluid}

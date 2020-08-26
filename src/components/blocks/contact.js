@@ -13,29 +13,42 @@ const Contact = () => {
               Contact Me
             </h1>
           </header>
-          <form className='Contact__form Contact__form__grid-wrapper' action=''>
+          <form
+            className='Contact__form Contact__form__grid-wrapper'
+            action='https://formspree.io/xbjzenav'
+            method='POST'
+          >
+            <input type='text' name='_gotcha' style={{ display: 'none' }} />
             <div className='Contact__grid-item--name'>
-              <label htmlFor='name'>Name</label>
-              <input id='name' type='text' name='name' required />
+              <label>
+                Name
+                <input id='name' type='text' name='name' required />
+              </label>
             </div>
 
             <div className='Contact__grid-item--email'>
-              <label htmlFor='email'>Email</label>
-              <input id='email' type='email' name='email' required />
+              <label>
+                Email
+                <input id='email' type='email' name='_replyto' required />
+              </label>
             </div>
 
             <div className='Contact__grid-item--message'>
-              <label htmlFor='message'>Message</label>
-              <textarea
-                id='message'
-                name='message'
-                placeholder='Enter message here...'
-                rows='7'
-                required
-              />
+              <label>
+                Message
+                <textarea
+                  id='message'
+                  name='message'
+                  placeholder='Enter message here...'
+                  rows='7'
+                  required
+                />
+              </label>
             </div>
 
-            <button className='Contact__send-btn button'>Send</button>
+            <button type='submit' className='Contact__send-btn button'>
+              Send
+            </button>
           </form>
         </div>
       </div>

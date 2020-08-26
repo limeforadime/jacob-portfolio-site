@@ -9,12 +9,14 @@ import FeaturedWork from '../components/blocks/featured-work';
 
 const IndexPage = () => (
   <Layout>
-    <Hero />
-    <About />
-    <Services />
-    <Contact />
-    <Testimonials />
-    <FeaturedWork />
+    <>
+      <Hero />
+      <About />
+      <Services />
+      <Contact />
+      <Testimonials />
+      <FeaturedWork />
+    </>
   </Layout>
 );
 

@@ -131,8 +131,11 @@ body {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: 62.5%;
   line-height: 1.5;
-  // color: $base-body-color;
-  // background-color: $light-bg-color;
+
+  &.noscroll {
+    position: fixed;
+    overflow: hidden;
+  }
 }
 
 img {

@@ -8,6 +8,7 @@ import '../styles/index.scss';
 
 const Layout = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [cartActive, setCartActive] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const { site, sidebar } = useLayoutQuery();
   const closeSidebar = () => setShowMenu(false);
@@ -16,8 +17,35 @@ const Layout = ({ children }) => {
     setScrollPosition(pos);
   };
 
+  const listenToSnipcartElement = () => {
+    const targetNode = document.getElementById('snipcart');
+    const targetClass = 'snipcart-modal__container';
+    const config = { attributes: true, childList: true, subtree: true };
+
+    const callback = (mutationsList) => {
+      for (let mutation of mutationsList) {
+        console.dir(mutation);
+        if (mutation.type === 'childList') {
+          if (mutation.addedNodes[0] && mutation.addedNodes[0].classList) {
+            if ([...mutation.addedNodes[0].classList].includes(targetClass)) {
+              setCartActive(true);
+              document.querySelector('body').classList.add('noscroll');
+            }
+          }
+          if (targetNode.children.length == 0) {
+            setCartActive(false);
+            document.querySelector('body').classList.remove('noscroll');
+          }
+        }
+      }
+    };
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+  };
+
   useEffect(() => {
     window.addEventListener('scroll', listenToScroll, { passive: true });
+    listenToSnipcartElement();
     return () => {
       window.removeEventListener('scroll', listenToScroll);
     };
@@ -66,68 +94,71 @@ const Layout = ({ children }) => {
               }}
             />
           </div>
-          <ul className='sidebar__menu'>
-            <li>
-              <Link
-                to='/'
-                className='sidebar__menu__item'
-                onClick={closeSidebar}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to='/#services'
-                className='sidebar__menu__item'
-                onClick={closeSidebar}
-              >
-                My Services
-              </Link>
-            </li>
-            <li>
-              <Link
-                to='/#contact'
-                className='sidebar__menu__item'
-                onClick={closeSidebar}
-              >
-                Get In Touch
-              </Link>
-            </li>
-            <li>
-              <Link
-                to='/#testimonials'
-                className='sidebar__menu__item'
-                onClick={closeSidebar}
-              >
-                Testimonials
-              </Link>
-            </li>
-            {/* <li>
-              <Link to='/#about' onClick={closeSidebar}>
-                About
-              </Link>
-            </li> */}
-            <li>
-              <Link
-                to='/all-works'
-                className='sidebar__menu__item'
-                onClick={closeSidebar}
-              >
-                My Works
-              </Link>
-            </li>
-            <li>
-              <button
-                className='sidebar__menu__item sidebar__button-reset snipcart-checkout'
-                onClick={closeSidebar}
-              >
-                <span className='fas fa-shopping-cart' />{' '}
-                <span className='snipcart-total-price'> $0.00</span> (
-                <span className='snipcart-items-count'>0</span>)
-              </button>
-            </li>
-          </ul>
+          <nav>
+            <ul className='sidebar__menu'>
+              <li>
+                <Link
+                  to='/'
+                  className='sidebar__menu__item'
+                  onClick={closeSidebar}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/#services'
+                  className='sidebar__menu__item'
+                  onClick={closeSidebar}
+                >
+                  My Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/#contact'
+                  className='sidebar__menu__item'
+                  onClick={closeSidebar}
+                >
+                  Get In Touch
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to='/#testimonials'
+                  className='sidebar__menu__item'
+                  onClick={closeSidebar}
+                >
+                  Testimonials
+                </Link>
+              </li>
+              {/* <li>
+                <Link to='/#about' onClick={closeSidebar}>
+                  About
+                </Link>
+              </li> */}
+              <li>
+                <Link
+                  to='/all-works'
+                  className='sidebar__menu__item'
+                  onClick={closeSidebar}
+                >
+                  My Works
+                </Link>
+              </li>
+              <li>
+                <button
+                  className='sidebar__menu__item sidebar__button-reset snipcart-checkout'
+                  onClick={closeSidebar}
+                >
+                  <span className='fas fa-shopping-cart' />{' '}
+                  <span className='snipcart-total-price'> $0.00</span> (
+                  <span className='snipcart-items-count'>0</span>)
+                </button>
+              </li>
+            </ul>
+          </nav>
+          <p className='sidebar__phone'>{sidebar.email}</p>
           <p className='sidebar__phone'>{sidebar.phoneNumber}</p>
           <p className='sidebar__social'>
             {sidebar.sidebarSocialLinks.map((profile) => (
@@ -198,6 +229,7 @@ const useLayoutQuery = () => {
           url
           profileType
         }
+        email
         phoneNumber
         copyright
       }
