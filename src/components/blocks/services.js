@@ -27,14 +27,13 @@ const Services = () => {
                 <h3 className='service__price'>${service.price}</h3>
                 <h4 className='service__description'>{service.description}</h4>
 
-                {/* TODO: change url path to the absolute netlify one */}
                 <button
                   className='service__button button snipcart-add-item'
                   data-item-id={service.id}
                   data-item-price={service.price}
                   data-item-name={service.name}
                   data-item-description={service.description}
-                  data-item-url={'https://jacob-portfolio-site.netlify.app'}
+                  data-item-url={'https://jmoore.netlify.app'}
                 >
                   Add To Cart
                 </button>
