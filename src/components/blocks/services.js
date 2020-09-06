@@ -33,7 +33,7 @@ const Services = () => {
                   data-item-price={service.price}
                   data-item-name={service.name}
                   data-item-description={service.description}
-                  data-item-url={'https://jmoore.netlify.app'}
+                  data-item-url={'https://mooreofthelight.com/'}
                 >
                   Add To Cart
                 </button>

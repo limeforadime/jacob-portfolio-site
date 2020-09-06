@@ -1,0 +1,11 @@
+.AllWorksPage {
+  &__title {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+
+    @include tablet {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}

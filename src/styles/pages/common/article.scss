@@ -1,9 +1,18 @@
 .article {
   padding: 40px 20px;
+  margin-top: 3rem;
+
+  @include tablet {
+    margin-top: 1rem;
+  }
+
+  pre {
+    white-space: pre-wrap;
+  }
 }
 
 .article__inner {
-  max-width: 600px;
+  max-width: 800px;
   margin: auto;
 }
 

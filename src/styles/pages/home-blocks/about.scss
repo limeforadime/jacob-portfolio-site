@@ -27,6 +27,7 @@
 
   &__content-text {
     margin: 1rem auto;
+    white-space: pre-line;
 
     @include tablet {
       font-size: 1rem;

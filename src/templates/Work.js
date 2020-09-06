@@ -70,11 +70,6 @@ export const query = graphql`
           html
         }
       }
-      gallery {
-        fluid(maxWidth: 200, imgixParams: { fm: "jpg", auto: "compress" }) {
-          src
-        }
-      }
       descriptionNode {
         childMarkdownRemark {
           html
@@ -93,3 +88,10 @@ export const query = graphql`
     }
   }
 `;
+/*
+gallery {
+        fluid(maxWidth: 200, imgixParams: { fm: "jpg", auto: "compress" }) {
+          src
+        }
+      }
+*/
