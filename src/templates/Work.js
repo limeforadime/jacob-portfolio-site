@@ -13,11 +13,7 @@ export default ({ data }) => (
         <h1 className='article__title'>{data.datoCmsWork.title}</h1>
         <h4 className='article__created-by'>By Jacob Moore</h4>
         <h4 className='article__creation-date'>
-          Created at:{' '}
-          {new Date('2016-11-23T14:54:58.995+00:00').toLocaleTimeString(
-            'en-US',
-            { month: 'long', day: 'numeric', year: 'numeric' }
-          )}
+          Created at: {data.datoCmsWork.meta.createdAt}
         </h4>
 
         {data.datoCmsWork.showCoverImage && (
